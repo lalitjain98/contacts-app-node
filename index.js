@@ -6,11 +6,17 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 app.get('/', (req, res)=>{
-    return res.render('home');
+    return res.render('home', {
+        title: 'My Contacts List',
+    });
     // res.send(req);
     // res.send("<p>Cool, this is running just fine.</p>")
 })
-
+app.get('/practice', (req, res)=>{
+    return res.render('practice', {
+        title: 'EJS Playground'
+    })
+})
 
 
 app.listen(port, (err)=>{

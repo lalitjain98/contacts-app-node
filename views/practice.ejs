@@ -7,6 +7,16 @@
     <title><%= title %></title>
 </head>
 <body>
-    <h1>Rendered from EJS View</h1>
+    <h1>Playground</h1>
+    <% if(true) {%>
+        <h1>Its True</h1>
+    <%} else {%>
+        <h1>Its False</h1>
+    <%}%>
+    <ul>
+        <% for(let i=0; i<10; i++){ %>
+            <li><%= `This is Item ${i+1}` %></li>
+        <%}%>
+    </ul>
 </body>
 </html>
