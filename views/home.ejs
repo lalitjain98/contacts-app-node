@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
-</head>
-<body>
-    <h1>Rendered from EJS View</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/fontawesome-free-5.9.0-web/css/all.css">
+    <link rel="stylesheet" href="/css/home.css">
+		<title><%= title %></title>
+    <style>
+      input {
+        padding: 0.5rem;
+        margin: 1rem;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="page-heading">
+      <i class="fas fa-address-book"></i>
+      Contact List
+    </h1>
+    <div>
+      <ul class="contact-list">
+        <%for(let i of contacts){%>
+        <li class="contact-list-item">
+          <div class="contact-details">
+              <p><%= i.name %></p>
+              <p><%= i.phone %></p>    
+          </div>
+          <div class="delete-contact-wrapper">
+            <a href="/delete-contact/<%= i.phone %>">
+                <i class="fas fa-window-close"></i>
+            </a>
+          </div>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <div>
+      <div><h3>Create New Contact</h3></div>
+      <form action="/create-contact" method="POST">
+        <input required name="name" placeholder="Name" />
+        <input required name="phone" placeholder="Phone" />
+        <input type="submit" />
+      </form>
+    </div>
+	</body>
+	<script type="text/javascript" src="/js/home.js"></script>
 </html>
